@@ -46,68 +46,72 @@ class EditProduct extends Component {
 		return (
 			<>
 				<table>
-					<tr>
-						<th>FieldName</th>
-						<th>Type</th>
-					</tr>
-					<tr>
-						<td>Name</td>
-						<td>
-							<input type="text" name="name" onChange={this.handleChange} />
-						</td>
-					</tr>
-					<tr>
-						<td>Weight</td>
-						<td>
-							<input type="text" name="weight" onChange={this.handleChange} />
-						</td>
-					</tr>
-					<tr>
-						<td>Availability</td>
-						<td>
-							<input type="number" name="availability" onChange={this.handleChange} />
-						</td>
-					</tr>
-					<tr>
-						<td>Product URL</td>
-						<td>
-							<input type="text" name="productUrl" onChange={this.handleChange} />
-						</td>
-					</tr>
-					<tr>
-						<td>Price Tier</td>
-						<td>
-							<label htmlFor="">
-								<input type="radio" name="pricingTier" value="budget" id="" onChange={this.handleChange}/>
-								budget
-							</label>
-							<label htmlFor="">
-								<input type="radio" name="pricingTier" value="premier" id="" onChange={this.handleChange}/>
-								premier
-							</label>
-						</td>
-					</tr>
-					<tr>
-						<td>Price Range</td>
-						<td>
-							<select name="priceRange" id="" onChange={this.handleChange}>
-								<option>Select Price</option>
-								{
-									prices ? prices.map(price => {
-										return (
-											<option value={price}>{price}</option>
-										)
-									}) : ''
-								}
-							</select>
-						</td>
-					</tr>
-					<tr>
-						<td>isEditable</td>
-						<td>
-							<input type="checkbox" name="isEditable" id="" onChange={this.handleEditable} />
-						</td>
-					</tr>
+					<thead>
+						<tr>
+							<th>FieldName</th>
+							<th>Type</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Name</td>
+							<td>
+								<input type="text" name="name" onChange={this.handleChange} />
+							</td>
+						</tr>
+						<tr>
+							<td>Weight</td>
+							<td>
+								<input type="text" name="weight" onChange={this.handleChange} />
+							</td>
+						</tr>
+						<tr>
+							<td>Availability</td>
+							<td>
+								<input type="number" name="availability" onChange={this.handleChange} />
+							</td>
+						</tr>
+						<tr>
+							<td>Product URL</td>
+							<td>
+								<input type="text" name="productUrl" onChange={this.handleChange} />
+							</td>
+						</tr>
+						<tr>
+							<td>Price Tier</td>
+							<td>
+								<label htmlFor="">
+									<input type="radio" name="pricingTier" value="budget" id="" onChange={this.handleChange}/>
+									budget
+								</label>
+								<label htmlFor="">
+									<input type="radio" name="pricingTier" value="premier" id="" onChange={this.handleChange}/>
+									premier
+								</label>
+							</td>
+						</tr>
+						<tr>
+							<td>Price Range</td>
+							<td>
+								<select name="priceRange" id="" onChange={this.handleChange}>
+									<option>Select Price</option>
+									{
+										prices ? prices.map((price, index) => {
+											return (
+												<option key={index} value={price}>{price}</option>
+											)
+										}) : ''
+									}
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>isEditable</td>
+							<td>
+								<input type="checkbox" name="isEditable" id="" onChange={this.handleEditable} />
+							</td>
+						</tr>
+					</tbody>
 				</table>
 				<div>
 					{

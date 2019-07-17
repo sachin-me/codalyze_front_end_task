@@ -39,24 +39,26 @@ class Main extends Component {
 		const { isLoading } = this.state;
 		return (
 			<table>
-				<tr>
-					<th>Name</th>
-					<th>Weight</th>
-					<th>Availability</th>
-					<th>isEditable</th>
-				</tr>
-				{
-					isLoading ? 'Loading...' : products.map((product, index) => (
-						<>
-							<tr>
-								<th>{product.name}</th>
-								<th>{product.weight}</th>
-								<th>{product.availability}</th>
-								<th>{product.isEditable ? <p onClick={() => this.handleEdit(index)}>Edit</p> : ''}</th>
+				<thead>
+					<tr>
+						<th className="table-header">Name</th>
+						<th className="table-header">Weight</th>
+						<th className="table-header">Availability</th>
+						<th className="table-header">isEditable</th>
+					</tr>
+				</thead>
+				<tbody>
+					{
+						isLoading ? 'Loading...' : products.map((product, index) => (
+							<tr key={index}>
+								<th className="table-data">{product.name}</th>
+								<th className="table-data">{product.weight}</th>
+								<th className="table-data">{product.availability}</th>
+								<th className="table-data">{product.isEditable ? <p className="edit-btn" onClick={() => this.handleEdit(index)}>Edit</p> : ''}</th>
 							</tr>
-						</>
-					))
-				}
+						))
+					}
+				</tbody>
 			</table>
 		)
 	}

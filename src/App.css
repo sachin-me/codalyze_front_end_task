@@ -1,35 +1,6 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+	text-align: center;
+	margin: 1rem;
 }
 
 table {
@@ -38,12 +9,47 @@ table {
   width: 100%;
 }
 
+.table-header {
+	color: #27a1e8;
+	font-size: 1.2rem;
+}
+
+.edit-btn {
+	color: #06060669;
+	cursor: pointer;
+}
+
 td, th {
   border: 1px solid #dddddd;
   text-align: left;
-  padding: 8px;
+	padding: 8px;
 }
 
-tr:nth-child(even) {
-  background-color: #dddddd;
+tbody tr:nth-child(even) {
+	color: #555;
+}
+
+tbody tr:nth-child(odd) {
+	background-color: #77cc6d;
+	color: #fff;
+}
+
+input[type="text"], input[type="number"], select {
+	outline: none;
+	height: 1.5rem;
+	border: 1px solid #999;
+	border-radius: 2px;
+	padding: 3px 4px;
+}
+
+button {
+	color: #fff;
+	background: #77cc6d;
+	border: 1px solid #77cc6d;
+	padding: 0.5rem;
+	margin: 1rem 0;
+	font-size: 1rem;
+	cursor: pointer;
+	outline: none;
+	border-radius: 3px;
 }
