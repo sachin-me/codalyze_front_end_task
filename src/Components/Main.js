@@ -8,17 +8,23 @@ const { getAllProducts } = actions;
 class Main extends Component {
 
 	state = {
-		isLoading: true
+		isLoading: false
 	}
 
 	componentDidMount() {
-		this.props.dispatch(getAllProducts(products, (success) => {
-			if (success) {
-				this.setState({
-					isLoading: false
-				})
-			}
-		}))
+		if (!this.props.products.length) {
+			this.setState({
+				isLoading: true
+			})
+			this.props.dispatch(getAllProducts(products, (success) => {
+				if (success) {
+					this.setState({
+						isLoading: false
+					})
+				}
+			}))
+		} 
+		
 	}
 
 	handleEdit = (id) => {
@@ -31,7 +37,6 @@ class Main extends Component {
 	render() {
 		const { products } = this.props;
 		const { isLoading } = this.state;
-		console.log(products, 'in main')
 		return (
 			<table>
 				<tr>

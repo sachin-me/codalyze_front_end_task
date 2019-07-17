@@ -1,15 +1,29 @@
 const actions = {
-	getAllProducts: ({products}, cb) => dispatch => {
+	getAllProducts: ({products, pricingInfo}, cb) => dispatch => {
 		new Promise((resolve, reject) => {
 			if (resolve) {
 				dispatch({
 					type: 'GET_PRODUCTS_SUCCESS',
-					products
+					products,
+					pricingInfo
 				})
 				cb(true)
 			} else {
 				cb(false)
-				console.log('Failed to read data from json file');
+			}
+		})
+	},
+
+	editProduct: (data, cb) => dispatch => {
+		new Promise((resolve, reject) => {
+			if (resolve) {
+				dispatch({
+					type: 'EDIT_PRODUCT_SUCCESS',
+					data
+				})
+				cb(true)
+			} else {
+				cb(false)
 			}
 		})
 	}

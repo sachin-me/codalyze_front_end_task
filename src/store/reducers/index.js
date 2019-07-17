@@ -1,5 +1,6 @@
 const initState = {
-	products: []
+	products: [],
+	priceInfo: {}
 }
 
 function productReducers(state = initState, action) {
@@ -7,7 +8,21 @@ function productReducers(state = initState, action) {
 		case 'GET_PRODUCTS_SUCCESS' : {
 			return {
 				...state,
-				products: action.products
+				products: action.products,
+				priceInfo: action.pricingInfo
+			}
+		}
+
+		case 'EDIT_PRODUCT_SUCCESS' : {
+			return {
+				...state,
+				products: state.products.map((product, index) => {
+					if (index === Number(action.data.id)) {
+						return action.data
+					} else {
+						return product
+					}
+				})
 			}
 		}
 
